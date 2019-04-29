@@ -1,13 +1,15 @@
-package com.example.o_o.afc;
+package com.example.o_o.afc.visOp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class newemployee extends AppCompatActivity {
+import com.example.o_o.afc.R;
+
+public class newVistor extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_newemployee);
+        setContentView(R.layout.activity_new_vistor);
     }
 }
