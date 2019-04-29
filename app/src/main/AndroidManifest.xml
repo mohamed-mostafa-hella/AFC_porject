@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".visOp.newVistor"></activity>
+        <activity android:name=".membOp.oldmem"></activity>
+        <activity android:name=".visOp.newVistor" />
         <activity android:name=".membOp.NewMember" />
         <activity android:name=".empOp.newemployee" />
         <activity android:name=".Login">
