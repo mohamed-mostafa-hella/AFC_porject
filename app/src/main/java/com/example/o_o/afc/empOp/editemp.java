@@ -1,4 +1,4 @@
-package com.example.o_o.afc.membOp;
+package com.example.o_o.afc.empOp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,23 +7,21 @@ import android.view.Menu;
 
 import com.example.o_o.afc.R;
 
-public class editmem extends AppCompatActivity {
-    Toolbar mtoolbar;
+public class editemp extends AppCompatActivity {
 
+    Toolbar mtoolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editmem);
-        mtoolbar=findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_editemp);
+        mtoolbar=(findViewById(R.id.toolbar));
         setSupportActionBar(mtoolbar);
         mtoolbar.setTitle("");
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menumem,menu);
+        getMenuInflater().inflate(R.menu.menuemp,menu);
         return true;
-
     }
 }
