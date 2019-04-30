@@ -10,11 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".empOp.editemp">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".empOp.findemp" />
         <activity android:name=".membOp.editmem">
@@ -22,7 +18,14 @@
         <activity android:name=".membOp.findmem" />
         <activity android:name=".visOp.newVistor" />
         <activity android:name=".membOp.NewMember" />
-        <activity android:name=".empOp.newemployee" />
+        <activity android:name=".empOp.newemployee" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".Login" />
         <activity android:name=".StartActivity" />
     </application>

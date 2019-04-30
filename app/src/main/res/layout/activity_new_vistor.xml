@@ -41,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
         <android.support.design.widget.TextInputEditText
+            android:inputType="number"
             android:id="@+id/age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

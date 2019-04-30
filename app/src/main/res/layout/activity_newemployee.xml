@@ -50,6 +50,7 @@
                 android:layout_margin="10dp">
 
                 <android.support.design.widget.TextInputEditText
+                    android:inputType="number"
                     android:id="@+id/nationalID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -113,6 +114,7 @@
                 android:layout_margin="10dp">
 
                 <android.support.design.widget.TextInputEditText
+                    android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/salary"/>
