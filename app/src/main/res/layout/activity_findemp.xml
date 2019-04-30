@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="AFC"
+            android:text="@string/club_name"
             android:textSize="25sp"
             android:textStyle="bold"
             android:padding="4dp"
@@ -33,26 +33,26 @@
         android:orientation="horizontal">
         <TextView
             android:layout_weight="1"
-            android:textSize="16dp"
-            android:text="Input Type"
+            android:textSize="16sp"
+            android:text="@string/input_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <RadioButton
             android:layout_weight="1"
-            android:textSize="16dp"
-            android:text="Name"
+            android:textSize="16sp"
+            android:text="@string/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <RadioButton
             android:layout_weight="1"
-            android:textSize="16dp"
-            android:text="Emp ID"
+            android:textSize="16sp"
+            android:text="@string/employee_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <RadioButton
             android:layout_weight="1"
-            android:textSize="16dp"
-            android:text="Nat ID"
+            android:textSize="16sp"
+            android:text="@string/national_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RadioGroup>
@@ -63,9 +63,9 @@
     <Button
         android:layout_margin="6dp"
         android:textStyle="bold"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textColor="#fff"
-        android:text="Search"
+        android:text="@string/search"
         android:background="@drawable/button_background"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"

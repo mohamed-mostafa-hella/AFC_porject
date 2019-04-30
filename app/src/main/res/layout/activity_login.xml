@@ -39,7 +39,7 @@
                 android:id="@+id/tsing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SIGN IN"
+                android:text="@string/sign_in"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 android:textColor="#CC139C13"
@@ -54,7 +54,7 @@
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="user name"/>
+                    android:hint="@string/user_name"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -71,14 +71,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:inputType="textPassword"
-                    android:hint="pasword" />
+                    android:hint="@string/password" />
 
             </android.support.design.widget.TextInputLayout>
             <Button
                 android:paddingHorizontal="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign in"
+                android:text="@string/sign_in"
                 android:textColor="#ffffff"
                 android:textStyle="bold"
                 android:layout_marginVertical="20dp"

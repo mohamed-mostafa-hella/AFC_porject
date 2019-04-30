@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="AFC"
+            android:text="@string/club_name"
             android:textSize="25sp"
             android:textStyle="bold"
             android:padding="4dp"
@@ -45,7 +45,7 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="meID" />
+                android:hint="@string/membership_id" />
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -54,7 +54,7 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Full Name"/>
+                android:hint="@string/full_name"/>
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -64,13 +64,13 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="National ID"/>
+                android:hint="@string/national_id"/>
 
         </android.support.design.widget.TextInputLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gender"
+            android:text="@string/gender"
             android:layout_marginVertical="5dp"
             android:layout_marginHorizontal="10dp"
             android:textSize="16sp"/>
@@ -81,12 +81,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <RadioButton
-                android:text="Male"
+                android:text="@string/male"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <RadioButton
-                android:text="Female"
+                android:text="@string/female"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -99,7 +99,7 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Date of Membership"/>
+                android:hint="@string/date_of_membership"/>
 
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
@@ -110,7 +110,7 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Date of Expiry"/>
+                android:hint="@string/date_of_expiry"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -122,7 +122,7 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Address"/>
+                android:hint="@string/address"/>
 
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
@@ -133,7 +133,7 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Job"/>
+                android:hint="@string/job"/>
 
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
@@ -144,22 +144,21 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword"/>
 
         </android.support.design.widget.TextInputLayout>
-        <Buttonm
+        <Button
             android:layout_marginVertical="20dp"
             android:paddingHorizontal="10dp"
             android:textStyle="bold"
             android:textSize="22sp"
             android:textColor="#fff"
-            android:text="Save"
+            android:text="@string/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-
-
+            android:background="@drawable/button_background"
             />
     </LinearLayout>
 </ScrollView>

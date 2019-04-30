@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">النادي</string>
+    <string name="employee_id">رقم الموظف</string>
+    <string name="full_name">الأسم الكامل</string>
+    <string name="national_id">الرقم القومى</string>
+    <string name="gender">النوع</string>
+    <string name="male">ذكر</string>
+    <string name="female">أنثى</string>
+    <string name="job">الوظيفة</string>
+    <string name="address">العنوان</string>
+    <string name="salary">الراتب</string>
+    <string name="password">الرقم السرى</string>
+    <string name="save">حفظ</string>
+    <string name="membership_id">رقم العضوية</string>
+    <string name="date_of_membership">تاريخ العضوية</string>
+    <string name="date_of_expiry">انتهاء العضوية</string>
+    <string name="club_name">النادى</string>
+    <string name="input_type">نوع البحث</string>
+    <string name="name">الأسم</string>
+    <string name="search">بحث</string>
+    <string name="sign_in">تسجيل دخول</string>
+    <string name="user_name">اسم المستخدم</string>
+    <string name="age">العمر</string>
+    <string name="get_a_ticket">احصل على تذكرة</string>
+    <string name="confirm_password">تاكيد الرقم السري</string>
+    <string name="sign_up">تسجيل جديد</string>
+    <string name="years">سنوات العضوية</string>
+</resources>
