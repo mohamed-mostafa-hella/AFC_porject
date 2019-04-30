@@ -77,7 +77,7 @@
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Date Of Start"
+                    android:hint="@string/date_of_start"
                     />
             </android.support.design.widget.TextInputLayout>
             <TextView
