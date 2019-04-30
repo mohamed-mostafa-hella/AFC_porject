@@ -26,6 +26,7 @@
             android:textColor="#fff"/>
     </android.support.v7.widget.Toolbar>
     <RadioGroup
+        android:id="@+id/inputtype"
         android:layout_margin="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,18 +38,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <RadioButton
+            android:id="@+id/name"
             android:layout_weight="1"
             android:textSize="16sp"
             android:text="@string/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <RadioButton
+            android:id="@+id/memberId"
             android:layout_weight="1"
             android:textSize="16sp"
             android:text="@string/membership_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <RadioButton
+            android:id="@+id/nationalID"
             android:layout_weight="1"
             android:textSize="16sp"
             android:text="@string/national_id"
@@ -56,10 +60,12 @@
             android:layout_height="wrap_content" />
     </RadioGroup>
     <EditText
+        android:id="@+id/input"
         android:layout_margin="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/search"
         android:layout_margin="6dp"
         android:textStyle="bold"
         android:textSize="18sp"

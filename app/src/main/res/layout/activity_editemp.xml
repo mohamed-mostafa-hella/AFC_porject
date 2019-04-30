@@ -42,6 +42,7 @@
                 android:layout_marginRight="8dp">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/employeeid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/employee_id"
@@ -52,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp">
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/fullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/full_name"/>
@@ -62,6 +64,7 @@
                 android:layout_margin="10dp">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/nationalID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/national_id"/>
@@ -75,6 +78,7 @@
                 android:layout_marginRight="8dp">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/dateofstart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/date_of_start"
@@ -88,17 +92,20 @@
                 android:layout_marginHorizontal="10dp"
                 android:textSize="16sp"/>
             <RadioGroup
+                android:id="@+id/gender"
                 android:layout_marginVertical="5dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <RadioButton
+                    android:id="@+id/male"
                     android:text="@string/male"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <RadioButton
+                    android:id="@+id/female"
                     android:text="@string/female"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
@@ -114,7 +121,7 @@
             <Spinner
                 android:layout_marginVertical="4dp"
                 android:layout_marginHorizontal="10dp"
-                android:id="@+id/years"
+                android:id="@+id/jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <android.support.design.widget.TextInputLayout
@@ -123,6 +130,7 @@
                 android:layout_margin="10dp">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/address"/>
@@ -134,6 +142,7 @@
                 android:layout_margin="10dp">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/salary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/salary"/>
@@ -145,6 +154,7 @@
                 android:layout_margin="10dp">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
@@ -153,6 +163,7 @@
             </android.support.design.widget.TextInputLayout>
 
             <Button
+                android:id="@+id/save"
                 android:layout_marginVertical="20dp"
                 android:paddingHorizontal="10dp"
                 android:textStyle="bold"
