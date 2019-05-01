@@ -43,7 +43,6 @@ public class newVistor extends AppCompatActivity {
             myImage.setImageBitmap(myBitMap);
 
         } catch (WriterException e) {
-            e.printStackTrace();
-        }
+            e.printStackTrace(); }
     }
 }
