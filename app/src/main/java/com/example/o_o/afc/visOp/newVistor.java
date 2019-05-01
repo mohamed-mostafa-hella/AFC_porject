@@ -1,15 +1,16 @@
 package com.example.o_o.afc.visOp;
 
 import android.graphics.Bitmap;
-import android.support.v7.app.AppCompatActivity;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Base64;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.example.o_o.afc.R;
-
-import net.glxn.qrgen.javase.QRCode;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 public class newVistor extends AppCompatActivity {
     ImageView myImage;
@@ -18,17 +19,31 @@ public class newVistor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_vistor);
-        String myBitmapString = QRCode.from("mohamed25").toString();
 
-        myImage = (ImageView) findViewById(R.id.ticketcode);
+        myImage = findViewById(R.id.ticketcode);
 
-
-        byte[] ecode = Base64.decode(myBitmapString , Base64.DEFAULT);
-        Bitmap myBitMap = BitmapFactory.decodeByteArray(ecode , 0  , ecode.length );
+        setQrCode("mohamed hella ");
 
 
 
-        myImage.setImageBitmap(myBitMap);
 
+
+
+
+    }
+
+    public void setQrCode(String s){
+        MultiFormatWriter multiFormatWriter=new MultiFormatWriter();
+        try {
+            BitMatrix bitMatrix=multiFormatWriter.encode(s, BarcodeFormat.QR_CODE , 200 , 200);
+
+            BarcodeEncoder barcodeEncoder=new BarcodeEncoder();
+            Bitmap myBitMap=barcodeEncoder.createBitmap(bitMatrix);
+
+            myImage.setImageBitmap(myBitMap);
+
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
     }
 }

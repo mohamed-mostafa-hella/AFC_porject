@@ -16,14 +16,17 @@
         <activity android:name=".membOp.editmem">
         </activity>
         <activity android:name=".membOp.findmem" />
-        <activity android:name=".visOp.newVistor" />
-        <activity android:name=".membOp.NewMember" />
-        <activity android:name=".empOp.newemployee" >
+        <activity android:name=".visOp.newVistor" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".membOp.NewMember" />
+        <activity android:name=".empOp.newemployee" >
+
 
         </activity>
         <activity android:name=".Login" />
