@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group
+        android:id="@+id/menu"
+        >
+        <item
+            android:id="@+id/newmem"
+            android:title="New Member"
+            android:icon="@drawable/add"
+            app:showAsAction="never"/>
+        <item
+            android:icon="@drawable/search"
+            android:id="@+id/oldmem"
+            android:title="Old Member"
+            app:showAsAction="never"/>
+    </group>
+    <item
+        android:id="@+id/LogOut"
+        android:icon="@drawable/logout"
+        android:title="Log Out"
+        app:showAsAction="always"/>
+</menu>

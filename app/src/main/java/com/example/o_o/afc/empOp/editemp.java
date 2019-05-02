@@ -21,7 +21,7 @@ public class editemp extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menuemp,menu);
+        getMenuInflater().inflate(R.menu.menuempedit,menu);
         return true;
     }
 }

@@ -22,7 +22,7 @@ public class editmem extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menumem,menu);
+        getMenuInflater().inflate(R.menu.menumemedit,menu);
         return true;
 
     }
