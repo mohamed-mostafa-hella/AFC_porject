@@ -14,6 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.o_o.afc.Constant;
 import com.example.o_o.afc.Max;
 import com.example.o_o.afc.R;
 import com.example.o_o.afc.Utalites;
@@ -35,7 +36,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Calendar;
 
 public class newemployee extends AppCompatActivity {
-    String[] Jobs = {"مدير النادي", "نائب مديرالنادي ", "مدير شئون قانونية", "باحث بشئون قانونية", "مدير نشاط رياضي", "باحث بالنشاط الرياضي", "مدير آمن", "فرد آمن", "مدير العضويات", "باحث العضويات", "رئيس شئون العاملين", "موظف شئون عاملين", "مسئول نظافة", "مدير ثقافى ورحلات", "باحث ثقافى ورحلات", "مدرب"};
     Spinner spinner;
 
     private FirebaseAuth mAuth;
@@ -72,7 +72,7 @@ public class newemployee extends AppCompatActivity {
         spinner = findViewById(R.id.jobs);
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, Jobs);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, Constant.Jobs);
         spinner.setAdapter(adapter);
 
         utalites = new Utalites(this);
