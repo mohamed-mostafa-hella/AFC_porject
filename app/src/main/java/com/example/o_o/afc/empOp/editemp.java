@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -59,7 +60,7 @@ public class editemp extends AppCompatActivity {
         female.setEnabled(true);
         save.setEnabled(true);
         address.setEnabled(true);
-        gender.setEnabled(true);
+
     }
     void disable()
     {
@@ -69,7 +70,7 @@ public class editemp extends AppCompatActivity {
         female.setEnabled(false);
         save.setEnabled(false);
         address.setEnabled(false);
-        gender.setEnabled(false);
+
     }
     void setdata()
     {
@@ -102,9 +103,18 @@ public class editemp extends AppCompatActivity {
                 enabled();
                 break;
             case R.id.delete:
-                ////
+                ////remove
                 break;
         }
         return true;
+    }
+
+    public void save(View view) {
+        disable();
+        op.setName(name.getText().toString());
+        op.setAddress(address.getText().toString());
+        op.setJop(job.getSelectedItem().toString());
+        disable();
+        ///////////////////////
     }
 }
