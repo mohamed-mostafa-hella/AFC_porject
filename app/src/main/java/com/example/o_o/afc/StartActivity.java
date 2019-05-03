@@ -65,18 +65,23 @@ public class StartActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.newemp:
                 next = new Intent(this, newemployee.class);
+                break;
             case R.id.oldemp:
                 next = new Intent(this, findemp.class);
+                break;
             case R.id.newmem:
                 next = new Intent(this, NewMember.class);
+                break;
             case R.id.oldmem:
                 next = new Intent(this, findmem.class);
+                break;
             case R.id.getticket:
                 next = new Intent(this, newVistor.class);
+                break;
             case R.id.LogOut:
                 next = new Intent(this, Login.class);
                 ////log
-
+                break;
         }
         getApplicationContext().startActivity(next);
         return true;
