@@ -6,13 +6,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.o_o.afc.*;
+import com.example.o_o.afc.empOp.findemp;
+import com.example.o_o.afc.empOp.newemployee;
+import com.example.o_o.afc.membOp.NewMember;
+import com.example.o_o.afc.membOp.findmem;
 import com.example.o_o.afc.modil.memModel;
+import com.example.o_o.afc.visOp.newVistor;
 
 public class StartActivity extends AppCompatActivity {
     Toolbar mtoolbar;
-
+Intent next;
     String type;
 
     @Override
@@ -45,10 +52,32 @@ public class StartActivity extends AppCompatActivity {
         } else if (type.equals("4")) {
             getMenuInflater().inflate(R.menu.menusecurity, menu);
         }
+        else {
+            getMenuInflater().inflate(R.menu.logoutmenu, menu);
+        }
 
         return true;
 
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.newemp:
+                next=new Intent(this, newemployee.class);
+            case R.id.oldemp:
+                next=new Intent(this, findemp.class);
+            case R.id.newmem:
+                next=new Intent(this, NewMember.class);
+            case R.id.oldmem:
+                next=new Intent(this, findmem.class);
+            case R.id.getticket:
+                next=new Intent(this, newVistor.class);
+            case R.id.LogOut:
+                next=new Intent(this, Login.class);
+                ////log
+        }
+        return true;
+    }
 }
