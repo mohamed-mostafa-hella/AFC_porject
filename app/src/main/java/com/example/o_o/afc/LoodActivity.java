@@ -34,16 +34,20 @@ public class LoodActivity extends AppCompatActivity {
         user=mAuth.getCurrentUser();
 
         SharedPreferences prefs = getSharedPreferences(Constant.SHARDPREFNAME, MODE_PRIVATE);
-        final String type = prefs.getString(Constant.TYPE, null);
+        final String type = prefs.getString(Constant.TYPE, "emp");
         database.child("User").child(type).child(user.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(type.equals("em")){
-                    memModel op = dataSnapshot.getValue(memModel.class);
-                    startactivityem(op);
+                if(dataSnapshot.exists()){
+                    if(type.equals("emp")){
+                        empModil op = dataSnapshot.getValue(empModil.class);
+                        startactivityem(op);
+                    }else{
+                        memModel op = dataSnapshot.getValue(memModel.class);
+                        startactivitymem(op);
+                    }
                 }else{
-                    empModil op = dataSnapshot.getValue(empModil.class);
-                    startactivitymem(op);
+                    Toast.makeText(LoodActivity.this, "cheack th inter net", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -54,36 +58,37 @@ public class LoodActivity extends AppCompatActivity {
         });
     }
 
-    Intent intent = new Intent(this , StartActivity.class);
-
-    private void startactivitymem(empModil op) {
-        int typ=gettyp(op);
+    private void startactivitymem(memModel op) {
+        Intent intent = new Intent(this , StartActivity.class);
         intent.putExtra("op", op);
-        intent.putExtra("type" , typ);
+        intent.putExtra("type" , ""+0);
         startActivity(intent);
     }
 
     //{"مدير النادي", "نائب مديرالنادي ", "مدير شئون قانونية", "باحث بشئون قانونية", "مدير نشاط رياضي", "باحث بالنشاط الرياضي", "مدير آمن", "فرد آمن", "مدير العضويات", "باحث العضويات", "رئيس شئون العاملين", "موظف شئون عاملين", "مسئول نظافة", "مدير ثقافى ورحلات", "باحث ثقافى ورحلات", "مدرب"};
-    //     0         1                    2                  3                4                     5                    6                7             8           9                 10                   11                   12                    13                  14               15
+    //     15         14                    13                  12                11                    10                   9                8             7           6                5                  4                   3                    2                  1               0
+
 
     private int gettyp(empModil op) {
         String jop=op.getJop();
-        if(jop.equals(Constant.Jobs[15]) ||  jop.equals(Constant.Jobs[14]) ){
+        if(jop.equals(Constant.Jobs[15-15]) ||  jop.equals(Constant.Jobs[1]) ){
             return 1;
-        }else if(jop.equals(Constant.Jobs[4]) ||  jop.equals(Constant.Jobs[5])){
+        }else if(jop.equals(Constant.Jobs[11]) ||  jop.equals(Constant.Jobs[10])){
             return 2;
-        }else if(jop.equals(Constant.Jobs[6]) ||  jop.equals(Constant.Jobs[7])){
+        }else if(jop.equals(Constant.Jobs[9]) ||  jop.equals(Constant.Jobs[8])){
             return 3;
-        }else if(jop.equals(Constant.Jobs[8]) ||  jop.equals(Constant.Jobs[9])){
+        }else if(jop.equals(Constant.Jobs[7]) ||  jop.equals(Constant.Jobs[6])){
             return 4;
         }else{
             return 5;
         }
     }
 
-    private void startactivityem(memModel op) {
+    private void startactivityem(empModil op) {
+        Intent intent = new Intent(this , StartActivity.class);
+        int typ=  gettyp(op);
         intent.putExtra("op", op);
-        intent.putExtra("type" , 0);
+        intent.putExtra("type" , ""+typ);
         startActivity(intent);
     }
 }

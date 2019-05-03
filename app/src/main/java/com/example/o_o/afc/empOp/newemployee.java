@@ -61,6 +61,9 @@ public class newemployee extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
 
+        mAuth.signOut();
+
+
         fullname = findViewById(R.id.fullname);
         nationalid = findViewById(R.id.nationalID);
         salary = findViewById(R.id.salary);
