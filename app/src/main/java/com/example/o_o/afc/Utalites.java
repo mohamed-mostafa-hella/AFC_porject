@@ -30,7 +30,7 @@ public class Utalites {
         this.context = context;
     }
 
-    void deleteemp(String Uid){
+    public void deleteemp(String Uid){
         if(user != null){
             database.child("User").child("emp").child(Uid).setValue(null);
             if(Uid.equals(user.getUid())){
@@ -41,7 +41,7 @@ public class Utalites {
         }
     }
 
-    void deletemem(String Uid){
+    public void deletemem(String Uid){
         if(user != null){
             database.child("User").child("mem").child(Uid).setValue(null);
             if(Uid.equals(user.getUid())){
@@ -59,11 +59,11 @@ public class Utalites {
         context.startActivity(intent);
     }
 
-    void updateEmployee(empModil empModil , String Uid){
+    public void updateEmployee(empModil empModil , String Uid){
         database.child("User").child("emp").child(Uid).setValue(empModil);
     }
 
-    void updateMemper(memModel memModel , String Uid){
+    public void updateMemper(memModel memModel , String Uid){
         database.child("User").child(Uid).setValue(memModel);
     }
 

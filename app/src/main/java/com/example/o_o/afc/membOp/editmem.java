@@ -14,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.o_o.afc.R;
+import com.example.o_o.afc.Utalites;
 import com.example.o_o.afc.modil.empModil;
 import com.example.o_o.afc.modil.memModel;
 
@@ -30,6 +31,8 @@ public class editmem extends AppCompatActivity {
     memModel op;
     String id;
 
+    Utalites utalites;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class editmem extends AppCompatActivity {
         Intent i = getIntent();
         op = (memModel) i.getSerializableExtra("op");
         id=i.getStringExtra("id");
+        utalites=new Utalites(this);
 
         setSupportActionBar(mtoolbar);
         mtoolbar.setTitle("");
@@ -71,7 +75,7 @@ public class editmem extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.delete:
-                /////////delete
+                utalites.deletemem(id);
                 break;
             case R.id.edit:
                 enabled();
@@ -131,6 +135,6 @@ public class editmem extends AppCompatActivity {
         else
             op.setGender(0);
         disabled();
-        //recive
+        utalites.updateMemper(op,id);
     }
 }
