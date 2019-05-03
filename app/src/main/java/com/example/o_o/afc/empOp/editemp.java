@@ -1,16 +1,27 @@
 package com.example.o_o.afc.empOp;
 
 import android.content.Intent;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.widget.Toast;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 
+import com.example.o_o.afc.Constant;
 import com.example.o_o.afc.R;
 import com.example.o_o.afc.modil.empModil;
 
 public class editemp extends AppCompatActivity {
+    TextInputEditText empid,nid,name,salary,date,address;
+    Spinner job;
+    RadioGroup gender;
+    RadioButton male ,female;
+    Button save
 
     empModil op;
     String id;
@@ -27,8 +38,32 @@ public class editemp extends AppCompatActivity {
         Intent i = getIntent();
         op = (empModil) i.getSerializableExtra("op");
         id=i.getStringExtra("id");
+        empid=findViewById(R.id.employeeid);
+        nid=findViewById(R.id.nationalID);
+        name=findViewById(R.id.fullname);
+        salary=findViewById(R.id.salary);
+        date=findViewById(R.id.dateofstart);
+        address=findViewById(R.id.address);
+        job=findViewById(R.id.jobs) ;
+        gender=findViewById(R.id.gender);
+        male=findViewById(R.id.male);
+        female=findViewById(R.id.female);
+        save=findViewById(R.id.save);
 
-        Toast.makeText(this, op.getName(), Toast.LENGTH_SHORT).show();
+    }
+    void setdata()
+    {
+        name.setText(op.getName());
+        if(op.getGender() == 1)
+            male.setChecked(true);
+        else
+            female.setChecked(true);
+        nid.setText(op.getNationalId());
+        date.setText( op.getDate().getYear()+"");
+        empid.setText(op.getID());
+        address.setText(op.getAddress());
+        salary.setText(op.getSalary());
+       job.setSelection(Constant.Jobs.indexOf(op.getJop()));
 
 
     }
@@ -39,5 +74,8 @@ public class editemp extends AppCompatActivity {
         return true;
     }
 
-    //use utalits updateEmployee;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return true;
+    }
 }
