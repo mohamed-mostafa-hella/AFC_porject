@@ -24,6 +24,7 @@ public class LoodActivity extends AppCompatActivity {
     private FirebaseUser user;
     DatabaseReference database = FirebaseDatabase.getInstance().getReference();
 
+    Utalites utalites;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,29 +34,35 @@ public class LoodActivity extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
 
-        SharedPreferences prefs = getSharedPreferences(Constant.SHARDPREFNAME, MODE_PRIVATE);
-        final String type = prefs.getString(Constant.TYPE, "emp");
-        database.child("User").child(type).child(user.getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    if(type.equals("emp")){
-                        empModil op = dataSnapshot.getValue(empModil.class);
-                        startactivityem(op);
-                    }else{
-                        memModel op = dataSnapshot.getValue(memModel.class);
-                        startactivitymem(op);
-                    }
-                }else{
-                    Toast.makeText(LoodActivity.this, "cheack th inter net", Toast.LENGTH_SHORT).show();
-                }
-            }
+        utalites=new Utalites(this);
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(LoodActivity.this, "there is error while looding data cheack the connection ", Toast.LENGTH_SHORT).show();
-            }
-        });
+        SharedPreferences prefs = getSharedPreferences(Constant.SHARDPREFNAME, MODE_PRIVATE);
+        final String type = prefs.getString(Constant.TYPE, null);
+        if(type != null){
+            database.child("User").child(type).child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.exists()){
+                        if(type.equals("emp")){
+                            empModil op = dataSnapshot.getValue(empModil.class);
+                            startactivityem(op);
+                        }else{
+                            memModel op = dataSnapshot.getValue(memModel.class);
+                            startactivitymem(op);
+                        }
+                    }else{
+                        Toast.makeText(LoodActivity.this, "cheack th inter net", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(LoodActivity.this, "there is error while looding data cheack the connection ", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else {
+            utalites.logout();
+        }
     }
 
     private void startactivitymem(memModel op) {
@@ -71,13 +78,13 @@ public class LoodActivity extends AppCompatActivity {
 
     private int gettyp(empModil op) {
         String jop=op.getJop();
-        if(jop.equals(Constant.Jobs[15-15]) ||  jop.equals(Constant.Jobs[1]) ){
+        if(jop.equals(Constant.Jobs.get(0)) ||  jop.equals(Constant.Jobs.get(1)) ){
             return 1;
-        }else if(jop.equals(Constant.Jobs[11]) ||  jop.equals(Constant.Jobs[10])){
+        }else if(jop.equals(Constant.Jobs.get(11)) ||  jop.equals(Constant.Jobs.get(10))){
             return 2;
-        }else if(jop.equals(Constant.Jobs[9]) ||  jop.equals(Constant.Jobs[8])){
+        }else if(jop.equals(Constant.Jobs.get(9)) ||  jop.equals(Constant.Jobs.get(8))){
             return 3;
-        }else if(jop.equals(Constant.Jobs[7]) ||  jop.equals(Constant.Jobs[6])){
+        }else if(jop.equals(Constant.Jobs.get(7)) ||  jop.equals(Constant.Jobs.get(6))){
             return 4;
         }else{
             return 5;
