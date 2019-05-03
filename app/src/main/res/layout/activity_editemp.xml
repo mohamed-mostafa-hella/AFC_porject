@@ -47,6 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/employee_id"
+                android:enabled="false"
                 />
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
@@ -57,7 +58,8 @@
                     android:id="@+id/fullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/full_name"/>
+                    android:hint="@string/full_name"
+                    android:enabled="false"/>
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -69,7 +71,8 @@
                     android:id="@+id/nationalID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/national_id"/>
+                    android:hint="@string/national_id"
+                    android:enabled="false"/>
 
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
@@ -84,6 +87,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/date_of_start"
+                    android:enabled="false"
                     />
             </android.support.design.widget.TextInputLayout>
             <TextView
@@ -105,13 +109,15 @@
                     android:text="@string/male"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:enabled="false"/>
                 <RadioButton
                     android:id="@+id/female"
                     android:text="@string/female"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:enabled="false"/>
             </RadioGroup>
             <TextView
                 android:layout_width="match_parent"
@@ -121,6 +127,7 @@
                 android:layout_marginHorizontal="10dp"
                 android:textSize="16sp"/>
             <Spinner
+                android:clickable="false"
                 android:layout_marginVertical="4dp"
                 android:layout_marginHorizontal="10dp"
                 android:id="@+id/jobs"
@@ -135,7 +142,8 @@
                     android:id="@+id/address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/address"/>
+                    android:hint="@string/address"
+                    android:enabled="false"/>
 
             </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
@@ -148,22 +156,11 @@
                     android:id="@+id/salary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/salary"/>
+                    android:hint="@string/salary"
+                    android:enabled="false"/>
 
             </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/password"
-                    android:inputType="textPassword" />
-
-            </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/save"
@@ -176,7 +173,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/button_background"/>
+                android:background="@drawable/button_background"
+                android:enabled="false"/>
         </LinearLayout>
     </ScrollView>
 
