@@ -2,6 +2,7 @@ package com.example.o_o.afc;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
@@ -18,6 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class Utalites {
     FirebaseAuth mAuth=FirebaseAuth.getInstance();
@@ -58,6 +61,12 @@ public class Utalites {
         Intent intent = new Intent(context , Login.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(intent);
+    }
+
+    private void saveshared(String email) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(Constant.SHARDPREFNAME, MODE_PRIVATE).edit();
+        editor.putString(Constant.TYPE, null );
+        editor.apply();
     }
 
     public void updateEmployee(empModil empModil , String Uid){

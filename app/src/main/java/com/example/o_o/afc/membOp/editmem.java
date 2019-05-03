@@ -124,7 +124,7 @@ public class editmem extends AppCompatActivity {
         memid.setText(op.getID());
         job.setText(op.getJop());
         address.setText(op.getAddress());
-        expirydate.setText(op.getExdata());
+        expirydate.setText(op.getExdata().toString());
     }
     public void save(View view) {
        op.setName( name.getText().toString());
