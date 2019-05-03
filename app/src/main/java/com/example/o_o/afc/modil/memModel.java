@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class memModel {
     private String name,natonalId,jop,address;
-    private int gender;
+    private int gender,ID;
     private Date date;
 
     public memModel() {
@@ -17,6 +17,24 @@ public class memModel {
         this.address = address;
         this.gender = gender;
         this.date = date;
+    }
+
+    public memModel(String name, String natonalId, String jop, String address, int gender, int ID, Date date) {
+        this.name = name;
+        this.natonalId = natonalId;
+        this.jop = jop;
+        this.address = address;
+        this.gender = gender;
+        this.ID = ID;
+        this.date = date;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getName() {

@@ -103,6 +103,7 @@
                 android:layout_margin="10dp">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/address"/>
@@ -114,6 +115,7 @@
                 android:layout_margin="10dp">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/salary"
                     android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -126,6 +128,7 @@
                 android:layout_margin="10dp">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
@@ -149,6 +152,7 @@
 
             </android.support.design.widget.TextInputLayout>
             <Button
+                android:id="@+id/signup"
                 android:layout_marginVertical="20dp"
                 android:paddingHorizontal="10dp"
                 android:textStyle="bold"

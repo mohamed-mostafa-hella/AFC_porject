@@ -1,16 +1,19 @@
 package com.example.o_o.afc.modil;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class empModil {
-    private String name,nationalId,address;
-    private int gender,jop,salary;
+
+@SuppressWarnings("serial") //With this annotation we are going to hide compiler warnings
+public class empModil implements Serializable {
+    private String name,nationalId,address,salary,jop,ID;
+    private int gender;
     private Date date;
 
     public empModil() {
     }
 
-    public empModil(String name, String nationalId, String address, int gender, int jop, int salary, Date date) {
+    public empModil(String name, String nationalId, String address, int gender, String jop, String salary, Date date,String ID) {
         this.name = name;
         this.nationalId = nationalId;
         this.address = address;
@@ -18,6 +21,26 @@ public class empModil {
         this.jop = jop;
         this.salary = salary;
         this.date = date;
+        this.ID=ID;
+    }
+
+    public empModil(String name, String nationalId, String address, int gender, String jop, String salary, Date date) {
+        this.name = name;
+        this.nationalId = nationalId;
+        this.address = address;
+        this.gender = gender;
+        this.jop = jop;
+        this.salary = salary;
+        this.date = date;
+    }
+
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     public String getName() {
@@ -52,19 +75,19 @@ public class empModil {
         this.gender = gender;
     }
 
-    public int getJop() {
+    public String getJop() {
         return jop;
     }
 
-    public void setJop(int jop) {
+    public void setJop(String jop) {
         this.jop = jop;
     }
 
-    public int getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 
