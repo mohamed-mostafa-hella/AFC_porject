@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.o_o.afc.empOp.newemployee;
 import com.example.o_o.afc.membOp.NewMember;
 import com.example.o_o.afc.membOp.findmem;
 import com.example.o_o.afc.modil.empModil;
@@ -67,27 +68,9 @@ public class Utalites {
         database.child("User").child(Uid).setValue(memModel);
     }
 
-    void login(String email , String pass){
-        if(user == null){
-            mAuth.signInWithEmailAndPassword(email , pass).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                @Override
-                public void onSuccess(AuthResult authResult) {
-                    openStartActivity();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(context, "error", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-    }
 
-    void openStartActivity() {
-        Intent intent = new Intent(context , findmem.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        context.startActivity(intent);
-    }
+
+
 
 
 }
