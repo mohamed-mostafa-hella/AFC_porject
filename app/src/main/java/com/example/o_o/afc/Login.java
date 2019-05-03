@@ -1,6 +1,7 @@
  package com.example.o_o.afc;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -65,18 +66,29 @@ import com.google.firebase.auth.FirebaseUser;
          }
      }
 
-     void openStartActivity() {
+     void openStartActivity(String email) {
+        saveshared(email);
          Intent intent = new Intent(this , LoodActivity.class);
          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
          startActivity(intent);
      }
 
-     void login(String email , String pass){
+     private void saveshared(String email) {
+         SharedPreferences.Editor editor = getSharedPreferences(Constant.SHARDPREFNAME, MODE_PRIVATE).edit();
+         if(email.contains("em")){
+             editor.putString(Constant.TYPE, "emp");
+         }else{
+             editor.putString(Constant.TYPE, "mem");
+         }
+         editor.apply();
+     }
+
+     void login(final String email , String pass){
          if(firebaseUser == null){
              mAuth.signInWithEmailAndPassword(email , pass).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                  @Override
                  public void onSuccess(AuthResult authResult) {
-                     openStartActivity();
+                     openStartActivity(email);
                  }
              }).addOnFailureListener(new OnFailureListener() {
                  @Override
