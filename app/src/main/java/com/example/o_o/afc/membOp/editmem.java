@@ -76,6 +76,7 @@ public class editmem extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.delete:
                 utalites.deletemem(id);
+                finish();
                 break;
             case R.id.edit:
                 enabled();
@@ -123,6 +124,7 @@ public class editmem extends AppCompatActivity {
         memid.setText(op.getID());
         job.setText(op.getJop());
         address.setText(op.getAddress());
+        expirydate.setText(op.getExdata());
     }
     public void save(View view) {
        op.setName( name.getText().toString());

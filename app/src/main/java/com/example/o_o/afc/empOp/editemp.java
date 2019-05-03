@@ -108,6 +108,7 @@ public class editemp extends AppCompatActivity {
                 break;
             case R.id.delete:
                 utalites.deleteemp(id);
+                finish();
                 break;
         }
         return true;
