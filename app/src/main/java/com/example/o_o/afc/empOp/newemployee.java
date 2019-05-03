@@ -35,7 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Calendar;
 
 public class newemployee extends AppCompatActivity {
-    String [] Jobs={"مدير النادي","نائب مديرالنادي ","مدير شئون قانونية","باحث بشئون قانونية","مدير نشاط رياضي","باحث بالنشاط الرياضي","مدير آمن","فرد آمن","مدير العضويات","باحث العضويات","رئيس شئون العاملين","موظف شئون عاملين","مسئول نظافة","مدير ثقافى ورحلات","باحث ثقافى ورحلات","مدرب"};
+    String[] Jobs = {"مدير النادي", "نائب مديرالنادي ", "مدير شئون قانونية", "باحث بشئون قانونية", "مدير نشاط رياضي", "باحث بالنشاط الرياضي", "مدير آمن", "فرد آمن", "مدير العضويات", "باحث العضويات", "رئيس شئون العاملين", "موظف شئون عاملين", "مسئول نظافة", "مدير ثقافى ورحلات", "باحث ثقافى ورحلات", "مدرب"};
     Spinner spinner;
 
     private FirebaseAuth mAuth;
@@ -47,42 +47,42 @@ public class newemployee extends AppCompatActivity {
 
     public Max number;
 
-    EditText fullname , nationalid , salary , address , password , cofirmpassword;
+    EditText fullname, nationalid, salary, address, password, cofirmpassword;
     ProgressBar looder;
     RadioGroup type;
     Button creat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newemployee);
 
 
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
 
-        mAuth=FirebaseAuth.getInstance();
-        user=mAuth.getCurrentUser();
-
-        fullname=findViewById(R.id.fullname);
-        nationalid=findViewById(R.id.nationalID);
-        salary=findViewById(R.id.salary);
-        address=findViewById(R.id.address);
-        password=findViewById(R.id.password);
-        cofirmpassword=findViewById(R.id.confirmpassword);
-        type=findViewById(R.id.gender);
-        creat=findViewById(R.id.signup);
-        spinner=findViewById(R.id.jobs);
+        fullname = findViewById(R.id.fullname);
+        nationalid = findViewById(R.id.nationalID);
+        salary = findViewById(R.id.salary);
+        address = findViewById(R.id.address);
+        password = findViewById(R.id.password);
+        cofirmpassword = findViewById(R.id.confirmpassword);
+        type = findViewById(R.id.gender);
+        creat = findViewById(R.id.signup);
+        spinner = findViewById(R.id.jobs);
 
 
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,Jobs);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, Jobs);
         spinner.setAdapter(adapter);
 
-        utalites=new Utalites(this);
+        utalites = new Utalites(this);
 
 
         database.child("max").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    number=dataSnapshot.getValue(Max.class);
+                if (dataSnapshot.exists()) {
+                    number = dataSnapshot.getValue(Max.class);
                 }
             }
 
@@ -95,41 +95,42 @@ public class newemployee extends AppCompatActivity {
         creat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(cheackvalid()){
-                   // looder.setVisibility(View.VISIBLE);
+                if (cheackvalid()) {
+                    // looder.setVisibility(View.VISIBLE);
                     int gender;
-                    if(type.getCheckedRadioButtonId()== R.id.male){
-                        gender=1;
-                    }else{
-                        gender=0;
+                    if (type.getCheckedRadioButtonId() == R.id.male) {
+                        gender = 1;
+                    } else {
+                        gender = 0;
                     }
-                    final empModil op=new empModil(fullname.getText().toString().trim(),
-                            nationalid.getText().toString().trim(),
-                            address.getText().toString().trim(),
-                            gender,
-                            spinner.getSelectedItem().toString(),
-                            salary.getText().toString(),
-                            Calendar.getInstance().getTime()
-                            );
 
-                    if(number==null){
+                    if (number == null) {
                         Toast.makeText(newemployee.this, "cheack the internet connection", Toast.LENGTH_SHORT).show();
-                       // looder.setVisibility(View.GONE);
-                    }else {
-                        int tem=number.getMaxEm();
-                        op.setID(""+tem);
+                        // looder.setVisibility(View.GONE);
+                    } else {
+                        int tem = number.getMaxEm();
+                        final empModil op = new empModil(fullname.getText().toString().trim(),
+                                nationalid.getText().toString().trim(),
+                                address.getText().toString().trim(),
+                                salary.getText().toString(),
+                                spinner.getSelectedItem().toString(),
+                                "" + tem,
+                              //  "emp",
+                                gender,
+                                Calendar.getInstance().getTime()
+                        );
                         StringBuilder input1 = new StringBuilder();
-                        String s="";
-                        for(int i=0;i<7;i++){
-                            s+=tem%10;
-                            tem/=10;
+                        String s = "";
+                        for (int i = 0; i < 7; i++) {
+                            s += tem % 10;
+                            tem /= 10;
                         }
                         input1.append(s);
                         input1.reverse();
-                        String email="em"+input1 ,pass=password.getText().toString();
+                        String email = "em" + input1, pass = password.getText().toString();
 
-                        if(user != null){
-                            mAuth.createUserWithEmailAndPassword(email+"@ex.com", pass)
+                        if (user != null) {
+                            mAuth.createUserWithEmailAndPassword(email + "@ex.com", pass)
                                     .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                         @Override
                                         public void onSuccess(AuthResult authResult) {
@@ -137,7 +138,7 @@ public class newemployee extends AppCompatActivity {
                                             // Sign in success, update UI with the signed-in user's information
                                             Log.d("tag", "createUserWithEmail:success");
                                             FirebaseUser user = mAuth.getCurrentUser();
-                                            database.child("User").child(user.getUid()).setValue(op);
+                                            database.child("User").child("emp").child(user.getUid()).setValue(op);
                                             number.maxEm++;
                                             database.child("max").setValue(number);
                                             //looder.setVisibility(View.GONE);
@@ -148,12 +149,12 @@ public class newemployee extends AppCompatActivity {
                                 public void onFailure(@NonNull Exception e) {
                                     // If sign in fails, display a message to the user.
                                     Toast.makeText(newemployee.this, "error 1", Toast.LENGTH_SHORT).show();
-                                   // looder.setVisibility(View.GONE);
+                                    // looder.setVisibility(View.GONE);
                                 }
                             });
-                        }else {
+                        } else {
                             Log.w("tag", "createUserWithEmail:failure : the user is loged in");
-                           // looder.setVisibility(View.GONE);
+                            // looder.setVisibility(View.GONE);
                             Toast.makeText(newemployee.this, "error", Toast.LENGTH_SHORT).show();
                         }
 
@@ -178,19 +179,19 @@ public class newemployee extends AppCompatActivity {
     }
 
     private boolean cheackvalid() {
-        String name=fullname.getText().toString();
-        String natid=nationalid.getText().toString();
-        String salaryst=salary.getText().toString();
-        if(name.trim().isEmpty()  ||
+        String name = fullname.getText().toString();
+        String natid = nationalid.getText().toString();
+        String salaryst = salary.getText().toString();
+        if (name.trim().isEmpty() ||
                 natid.trim().isEmpty() ||
                 salaryst.trim().isEmpty() ||
                 address.getText().toString().trim().isEmpty() ||
                 password.getText().toString().trim().isEmpty() ||
-                cofirmpassword.getText().toString().trim().isEmpty() || (type.getCheckedRadioButtonId() != R.id.male  && type.getCheckedRadioButtonId() != R.id.female ) ) {
+                cofirmpassword.getText().toString().trim().isEmpty() || (type.getCheckedRadioButtonId() != R.id.male && type.getCheckedRadioButtonId() != R.id.female)) {
 
             Toast.makeText(this, "all fealdes are required", Toast.LENGTH_SHORT).show();
             return false;
-        }else{
+        } else {
             return true;
         }
     }

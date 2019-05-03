@@ -60,7 +60,7 @@ public class findemp extends AppCompatActivity {
                             Toast.makeText(findemp.this, "search id", Toast.LENGTH_SHORT).show();
                             break;
                         case R.id.nationalID:
-                            search(in, "natonalId");
+                            search(in, "nationalId");
                             Toast.makeText(findemp.this, "search natonalId", Toast.LENGTH_SHORT).show();
                             break;
                         default:
@@ -82,7 +82,7 @@ public class findemp extends AppCompatActivity {
                 if(dataSnapshot.exists()){
                     boolean found=false;
                     for( DataSnapshot dchild: dataSnapshot.getChildren() ){
-                        if(dchild.child(id).getValue(String.class) != null &&  dchild.child(id).getValue(String.class).equals(in) ){
+                        if(dchild.child(id).getValue(String.class) != null &&  dchild.child(id).getValue(String.class).equals(in)){
                             empModil op = dchild.getValue(empModil.class);
                             String idoffund = dchild.getKey();
                             opendetals(op,idoffund);
@@ -102,11 +102,11 @@ public class findemp extends AppCompatActivity {
             }
         };
 
-        database.child("User").addValueEventListener(valueEventListener);
+        database.child("User").child("emp").addValueEventListener(valueEventListener);
     }
 
     private void opendetals(empModil op , String id) {
-        database.child("User").removeEventListener(valueEventListener);
+        database.child("User").child("emp").removeEventListener(valueEventListener);
         Intent intent = new Intent(this , editemp.class);
 
         intent.putExtra("op", op);

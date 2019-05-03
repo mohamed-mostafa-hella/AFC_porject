@@ -29,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class NewMember extends AppCompatActivity {
 
@@ -97,20 +98,28 @@ public class NewMember extends AppCompatActivity {
                     }else{
                         gender=0;
                     }
-                    final memModel op=new memModel(fullname.getText().toString().trim(),
-                            nationalid.getText().toString().trim(),
-                            jop.getText().toString().trim(),
-                            address.getText().toString().trim(),
-                            gender,
-                            Calendar.getInstance().getTime()
-                    );
+
+
 
                     if(number==null){
                         Toast.makeText(NewMember.this, "cheack the internet connection", Toast.LENGTH_SHORT).show();
                         // looder.setVisibility(View.GONE);
                     }else {
                         int tem=number.getMaxMem();
-                        op.setID(tem);
+
+                        Calendar now = Calendar.getInstance();
+                        now.add(Calendar.YEAR,1);
+
+                        final memModel op=new memModel(fullname.getText().toString().trim(),
+                                nationalid.getText().toString().trim(),
+                                jop.getText().toString().trim(),
+                                address.getText().toString().trim(),
+                                ""+tem,
+                                gender,
+                                Calendar.getInstance().getTime(),
+                                now.getTime()
+                        );
+
                         StringBuilder input1 = new StringBuilder();
                         String s="";
                         for(int i=0;i<7;i++){
@@ -130,7 +139,7 @@ public class NewMember extends AppCompatActivity {
                                             // Sign in success, update UI with the signed-in user's information
                                             Log.d("tag", "createUserWithEmail:success");
                                             FirebaseUser user = mAuth.getCurrentUser();
-                                            database.child("User").child(user.getUid()).setValue(op);
+                                            database.child("User").child("mem").child(user.getUid()).setValue(op);
                                             number.maxMem++;
                                             database.child("max").setValue(number);
                                             //looder.setVisibility(View.GONE);

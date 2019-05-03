@@ -13,24 +13,14 @@ public class empModil implements Serializable {
     public empModil() {
     }
 
-    public empModil(String name, String nationalId, String address, int gender, String jop, String salary, Date date,String ID) {
+    public empModil(String name, String nationalId, String address, String salary, String jop, String ID, int gender, Date date) {
         this.name = name;
         this.nationalId = nationalId;
         this.address = address;
-        this.gender = gender;
-        this.jop = jop;
         this.salary = salary;
-        this.date = date;
-        this.ID=ID;
-    }
-
-    public empModil(String name, String nationalId, String address, int gender, String jop, String salary, Date date) {
-        this.name = name;
-        this.nationalId = nationalId;
-        this.address = address;
-        this.gender = gender;
         this.jop = jop;
-        this.salary = salary;
+        this.ID = ID;
+        this.gender = gender;
         this.date = date;
     }
 
