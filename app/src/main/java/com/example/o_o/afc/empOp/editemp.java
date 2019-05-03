@@ -15,6 +15,7 @@ import android.widget.Spinner;
 
 import com.example.o_o.afc.Constant;
 import com.example.o_o.afc.R;
+import com.example.o_o.afc.Utalites;
 import com.example.o_o.afc.modil.empModil;
 
 public class editemp extends AppCompatActivity {
@@ -24,6 +25,7 @@ public class editemp extends AppCompatActivity {
     RadioButton male ,female;
     Button save;
 
+    Utalites utalites;
     empModil op;
     String id;
 
@@ -50,6 +52,8 @@ public class editemp extends AppCompatActivity {
         male=findViewById(R.id.male);
         female=findViewById(R.id.female);
         save=findViewById(R.id.save);
+
+        utalites=new Utalites(this);
 
     }
     void enabled()
@@ -103,7 +107,7 @@ public class editemp extends AppCompatActivity {
                 enabled();
                 break;
             case R.id.delete:
-                ////remove
+                utalites.deleteemp(id);
                 break;
         }
         return true;
@@ -115,6 +119,6 @@ public class editemp extends AppCompatActivity {
         op.setAddress(address.getText().toString());
         op.setJop(job.getSelectedItem().toString());
         disable();
-        ///////////////////////
+        utalites.updateEmployee(op,id);
     }
 }
