@@ -22,12 +22,16 @@ public class StartActivity extends AppCompatActivity {
     Intent next;
     String type;
 
+    Utalites utalites;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
+
+        utalites=new Utalites(this);
 
         Intent i = getIntent();
         type = i.getStringExtra("type");
@@ -80,7 +84,7 @@ public class StartActivity extends AppCompatActivity {
                 break;
             case R.id.LogOut:
                 next = new Intent(this, Login.class);
-                ////log
+                utalites.logout();
                 break;
         }
         getApplicationContext().startActivity(next);

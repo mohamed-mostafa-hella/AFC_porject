@@ -33,13 +33,13 @@ import com.google.firebase.auth.FirebaseUser;
 
         FirebaseApp.initializeApp(this);
 
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         email=findViewById(R.id.username);
         pass=findViewById(R.id.password);
         button=findViewById(R.id.signin);
         utalites=new Utalites(this);
 
         mAuth=FirebaseAuth.getInstance();
+        firebaseUser=mAuth.getCurrentUser();
         if(firebaseUser != null){
             Intent intent=new Intent(this , LoodActivity.class);
             startActivity(intent);
