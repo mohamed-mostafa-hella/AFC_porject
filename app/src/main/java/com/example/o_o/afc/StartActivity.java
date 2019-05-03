@@ -19,7 +19,7 @@ import com.example.o_o.afc.visOp.newVistor;
 
 public class StartActivity extends AppCompatActivity {
     Toolbar mtoolbar;
-Intent next;
+    Intent next;
     String type;
 
     @Override
@@ -51,8 +51,7 @@ Intent next;
 
         } else if (type.equals("4")) {
             getMenuInflater().inflate(R.menu.menusecurity, menu);
-        }
-        else {
+        } else {
             getMenuInflater().inflate(R.menu.logoutmenu, menu);
         }
 
@@ -63,21 +62,23 @@ Intent next;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.newemp:
-                next=new Intent(this, newemployee.class);
+                next = new Intent(this, newemployee.class);
             case R.id.oldemp:
-                next=new Intent(this, findemp.class);
+                next = new Intent(this, findemp.class);
             case R.id.newmem:
-                next=new Intent(this, NewMember.class);
+                next = new Intent(this, NewMember.class);
             case R.id.oldmem:
-                next=new Intent(this, findmem.class);
+                next = new Intent(this, findmem.class);
             case R.id.getticket:
-                next=new Intent(this, newVistor.class);
+                next = new Intent(this, newVistor.class);
             case R.id.LogOut:
-                next=new Intent(this, Login.class);
+                next = new Intent(this, Login.class);
                 ////log
+
         }
+        getApplicationContext().startActivity(next);
         return true;
     }
 }
