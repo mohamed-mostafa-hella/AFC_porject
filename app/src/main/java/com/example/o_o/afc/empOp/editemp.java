@@ -51,6 +51,26 @@ public class editemp extends AppCompatActivity {
         save=findViewById(R.id.save);
 
     }
+    void enabled()
+    {
+        name.setEnabled(true);
+        male.setEnabled(true);
+        job.setEnabled(true);
+        female.setEnabled(true);
+        save.setEnabled(true);
+        address.setEnabled(true);
+        gender.setEnabled(true);
+    }
+    void disable()
+    {
+        name.setEnabled(false);
+        male.setEnabled(false);
+        job.setEnabled(false);
+        female.setEnabled(false);
+        save.setEnabled(false);
+        address.setEnabled(false);
+        gender.setEnabled(false);
+    }
     void setdata()
     {
         name.setText(op.getName());
@@ -76,6 +96,15 @@ public class editemp extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.edit:
+                enabled();
+                break;
+            case R.id.delete:
+                ////
+                break;
+        }
         return true;
     }
 }
