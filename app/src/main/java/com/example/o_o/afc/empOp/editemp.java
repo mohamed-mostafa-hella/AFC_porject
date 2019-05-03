@@ -22,7 +22,7 @@ public class editemp extends AppCompatActivity {
     Spinner job;
     RadioGroup gender;
     RadioButton male ,female;
-    Button save
+    Button save;
 
     empModil op;
     String id;
